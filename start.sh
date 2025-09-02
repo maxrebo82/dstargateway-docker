@@ -4,7 +4,7 @@
 
 # Start the DGW Time Server in the background
 echo "Starting dgwtimeserver..."
-/usr/local/bin/dgwtimeserver /usr/local/etc/dstargateway.cfg &
+/usr/local/bin/dgwtimeserver /usr/local/etc/dgwtimeserver.cfg &
 
 # Start the DStarGateway in the foreground
 # This keeps the container running.

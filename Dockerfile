@@ -49,7 +49,10 @@ EXPOSE 30051/udp
 EXPOSE 40000/udp
 EXPOSE 4242/udp
 
-# The DStarGateway program runs in the foreground by default.
-# The binary is installed at /usr/local/bin/DStarGateway
-CMD ["/usr/local/bin/DStarGateway"]
+# Copy the startup script into the container and make it executable
+COPY start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
+# The startup script will run both dgwtimeserver (background) and dstargateway (foreground)
+CMD ["/usr/local/bin/start.sh"]
 

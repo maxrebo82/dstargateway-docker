@@ -16,3 +16,5 @@ services:
       - ./config:/usr/local/etc
       - ./logs:/var/log/dstargateway
       - ./data:/usr/local/share/dstargateway.d
+    environment:
+      - TZ=America/Chicago

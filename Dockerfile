@@ -34,6 +34,8 @@ RUN git config --global --add safe.directory /usr/src/app && \
     latestTag=$(git describe --tags `git rev-list --tags --max-count=1`) && \
     git checkout $latestTag && \
     git checkout develop && \
+    # Patch Makefiles to remove systemd dependencies (systemctl calls) which fail in Docker
+    find . -name 'Makefile' -type f -exec sed -i '/systemctl/d' {} + && \
     make && \
     make install newhostfiles
 

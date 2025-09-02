@@ -1,18 +1,17 @@
 services:
-    dstargateway:
-        build: .
-        container_name: dstargateway
-        restart: unless-stopped
-        # Using host networking is simpler if you don't need port isolation.
-        # If you use host networking, the 'ports' section below is ignored.
-        network_mode: "host"
-        #ports:
-        #- "20000:20000/udp"
-        #- "20001:20001/udp"
-        #- "30001:30001/udp"
-        #- "30051:30051/udp"
-        #- "40000:40000/udp"
-        #- "4242:4242/udp"
-        volumes:
-        - ./config:/usr/local/etc
-        - ./logs:/var/log/dstargateway
+  dstargateway:
+    build: .
+    container_name: dstargateway
+    restart: unless-stopped
+    network_mode: "host"
+    user: "1000:1000"
+    #ports:
+    #  - "20000:20000/udp"
+    #  - "20001:20001/udp"
+    #  - "30001:30001/udp"
+    #  - "30051:30051/udp"
+    #  - "40000:40000/udp"
+    #  - "4242:4242/udp"
+    volumes:
+      - ./config:/usr/local/etc
+      - ./logs:/var/log/dstargateway

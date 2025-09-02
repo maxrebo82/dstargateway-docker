@@ -7,12 +7,14 @@ WORKDIR /usr/src/app
 # Update package lists and install dependencies
 # - build-essential: For compiling the C++ code (make, g++, etc.)
 # - git: To clone the source code repository
+# - ca-certificates: For git to verify SSL certificates
 # - libcurl4-openssl-dev, libboost-dev: Libraries required by DStarGateway
 # - bind9-host: For DNS utilities like 'host'
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
     git \
+    ca-certificates \
     libcurl4-openssl-dev \
     libboost-dev \
     bind9-host \
@@ -45,3 +47,4 @@ EXPOSE 40000/udp
 # The DStarGateway program runs in the foreground by default.
 # The binary is installed at /usr/local/bin/DStarGateway
 CMD ["/usr/local/bin/DStarGateway"]
+

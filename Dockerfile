@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 # - build-essential: For compiling the C++ code (make, g++, etc.)
 # - git: To clone the source code repository
 # - ca-certificates: For git to verify SSL certificates
+# - wget: For the 'make newhostfiles' target
 # - libcurl4-openssl-dev, libboost-dev: Libraries required by DStarGateway
 # - bind9-host: For DNS utilities like 'host'
 RUN apt-get update && \
@@ -15,6 +16,7 @@ RUN apt-get update && \
     build-essential \
     git \
     ca-certificates \
+    wget \
     libcurl4-openssl-dev \
     libboost-dev \
     bind9-host \

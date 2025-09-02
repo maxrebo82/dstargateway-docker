@@ -47,6 +47,7 @@ EXPOSE 20001/udp
 EXPOSE 30001/udp
 EXPOSE 30051/udp
 EXPOSE 40000/udp
+EXPOSE 4242/udp
 
 # The DStarGateway program runs in the foreground by default.
 # The binary is installed at /usr/local/bin/DStarGateway
